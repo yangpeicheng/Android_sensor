@@ -61,7 +61,6 @@ public class currentPara extends AppCompatActivity implements SensorEventListene
         graph1.getViewport().setMinX(200);
         graph1.getViewport().setMaxX(500);
         graph1.getGridLabelRenderer().setHorizontalAxisTitle("count");
-       // graph1.getGridLabelRenderer().setVerticalAxisTitle("linear_X");
         series1=new LineGraphSeries<DataPoint>();
         series2=new LineGraphSeries<DataPoint>();
         series3=new LineGraphSeries<DataPoint>();
@@ -100,7 +99,7 @@ public class currentPara extends AppCompatActivity implements SensorEventListene
         linearZ.setText(String.valueOf(linear_acceleration[2]));
         DataPoint t=new DataPoint(start++,linear_acceleration[0]);
         series1.appendData(t,true,500);
-        series2.appendData(new DataPoint(start++,linear_acceleration[1]),true,500);
+        series2.appendData(new DataPoint(start,linear_acceleration[1]),true,500);
         series3.appendData(new DataPoint(start++,linear_acceleration[2]),true,500);
     }
     @Override
@@ -110,7 +109,7 @@ public class currentPara extends AppCompatActivity implements SensorEventListene
     @Override
     public void onResume(){
         super.onResume();
-        sm.registerListener(this,sensor,SensorManager.SENSOR_DELAY_GAME);
+        sm.registerListener(currentPara.this,sensor,SensorManager.SENSOR_DELAY_GAME);
     }
     @Override
     public void onPause(){

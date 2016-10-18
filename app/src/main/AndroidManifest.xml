@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".showInfo" />
-        <activity android:name=".currentPara"></activity>
+        <activity android:name=".currentPara" />
+        <activity android:name=".magnetic"></activity>
     </application>
 
 </manifest>
